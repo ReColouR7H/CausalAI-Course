@@ -1,0 +1,76 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Math}
+\author{Andres Soto Ticse}
+\date{August 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\paragraph{Teorema FWL}
+\begin{itemize}
+  \item Sea el modelo lineal
+  \begin{equation}
+    y = X_1\beta_1 + X_2\beta_2 + u. \label{eq:modelo}
+  \end{equation}
+  con $[X_1\ X_2]$ de rango completo.
+
+  \item Matriz de proyección sobre $X_2$:
+  \begin{equation}
+    P_2 = X_2(X_2'X_2)^{-1}X_2'. \label{eq:P2}
+  \end{equation}
+
+  \item Matriz de aniquilación de $X_2$:
+  \begin{equation}
+    M_2 = I - P_2. \label{eq:M2}
+  \end{equation}
+
+  \item Propiedades: $P_2 = P_2' = P_2^2$, \ $M_2 = M_2' = M_2^2$, \ $M_2X_2 = 0$.
+\end{itemize}
+
+Las ecuaciones normales del MCO sobre $[X_1\ X_2]$ son
+\begin{align}
+\begin{equation}
+X_1'(y - X_1\beta_1 - X_2\beta_2) &= 0, \label{eq:normal1}
+\end{equation}
+
+\begin{equation}
+ X_2'(y - X_1\beta_1 - X_2\beta_2) &= 0. \label{eq:normal2}
+\end{equation}
+ 
+\end{align}
+
+
+Apartir de (5):
+\begin{equation}
+\beta_2 = (X_2'X_2)^{-1}X_2'(y - X_1\beta_1). \label{eq:beta2}
+\end{equation}
+\indent Sustituyendo en (4) y usando M2 se obtiene
+\begin{equation}
+X_1'M_2\,y = X_1'M_2X_1\,\beta_1. \label{eq:ecuacionM2}
+\end{equation}
+
+Dado que $X_1'M_2X_1$ es no singular, el estimador es
+\begin{equation}
+\hat\beta_1=(X_1'M_2X_1)^{-1}X_1'M_2y. \label{eq:beta1hat}
+\end{equation}
+
+Definiendo $\tilde y=M_2y$ y $\tilde X_1=M_2X_1$, las ecuaciones normales de la regresión 
+\indent MCO de $\tilde y$ sobre $\tilde X_1$ son
+
+
+\begin{equation}
+\tilde X_1'(\tilde y-\tilde X_1\beta_1)=0
+\ \Longleftrightarrow\
+X_1'M_2y=X_1'M_2X_1\,\beta_1, \label{eq:tilde-normal}
+\end{equation}
+\indent que coinciden con M2. Por tanto, el coeficiente al regredir $\tilde y$ sobre $\tilde X_1$ es 
+\indent exactamente $\hat\beta_1$ de la regresión completa.
+
+
+
+\end{document}
